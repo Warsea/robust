@@ -10,13 +10,14 @@ import CardMedia from "@mui/material/CardMedia";
 import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
+import { width } from "@mui/system";
 
 function Feed() {
   const [podcasts, setPodcasts] = useState([]);
   useEffect(() => {
     const fetchFeed = async () => {
       const res = await fetch(
-        "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fanchor.fm%2Fs%2Fcc5c7610%2Fpodcast%2Frss"
+        "https://www.toptal.com/developers/feed2json/convert?url=https://anchor.fm/s/cc5c7610/podcast/rss"
       );
       let data = await res.json();
       let items = data.items;
@@ -43,7 +44,11 @@ function Feed() {
                 {podcast.description}
               </Typography>
             </CardContent>
-            <ReactAudioPlayer src={podcast.enclosure.link} controls />
+            <ReactAudioPlayer
+              style={{ opacity: "40%", width: "100%" }}
+              src={podcast.enclosure.link}
+              controls
+            />
           </Card>
         </>
       ))}
