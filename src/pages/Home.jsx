@@ -43,7 +43,7 @@ function Home() {
     // Intro
     <>
       <StyledBackground>
-        <StyledPaper rounded elevation={5}>
+        <StyledPaper elevation={5}>
           <Typography variant="h5"> Introducing</Typography>
           <Typography variant="h3" sx={{ color: "#A23A36" }}>
             Robust

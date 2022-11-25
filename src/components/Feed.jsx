@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -11,32 +11,20 @@ import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import { width } from "@mui/system";
+import { PodcastContext } from "../contexts/PodcastContext";
 
 function Feed() {
-  const [podcasts, setPodcasts] = useState([]);
-  useEffect(() => {
-    const fetchFeed = async () => {
-      const res = await fetch(
-        "https://www.toptal.com/developers/feed2json/convert?url=https://anchor.fm/s/cc5c7610/podcast/rss"
-      );
-      let data = await res.json();
-      let items = data.items;
-      console.log(items);
-      setPodcasts(items);
-    };
-
-    fetchFeed();
-  }, []);
+  const { podcasts } = useContext(PodcastContext);
   return (
     <Box flex={3} p={2}>
-      {podcasts.map((podcast) => (
+      {podcasts.items.map((podcast) => (
         <>
-          <Card sx={{ minWidth: 345 }}>
-            <CardHeader title={podcast.title} subheader={podcast.pubDate} />
+          <Card>
+            <CardHeader title={podcast.title} />
             <CardMedia
               component="img"
               height="194"
-              image={podcast.thumbnail}
+              image={podcast.enclosures[1].url}
               alt="Paella dish"
             />
             <CardContent>
@@ -46,7 +34,7 @@ function Feed() {
             </CardContent>
             <ReactAudioPlayer
               style={{ opacity: "40%", width: "100%" }}
-              src={podcast.enclosure.link}
+              src={podcast.enclosures[0].url}
               controls
             />
           </Card>
