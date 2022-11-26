@@ -1,10 +1,11 @@
 import Box from "@mui/system/Box";
 import React from "react";
-import background from "../images/matt.jpg";
+import background from "../images/palacio.jpg";
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/system";
 import { Typography } from "@mui/material";
 import InfoSection from "../components/InfoSection";
+import PoweredBy from "../components/PoweredBy";
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
@@ -46,7 +47,7 @@ function Home() {
         <StyledPaper elevation={5}>
           <Typography variant="h5"> Introducing</Typography>
           <Typography variant="h3" sx={{ color: "#A23A36" }}>
-            Robust
+            ROBUST
           </Typography>
           <Typography variant="subtitle1">
             The first tech podcast in Bangladesh.
@@ -55,6 +56,7 @@ function Home() {
       </StyledBackground>
 
       <InfoSection />
+      <PoweredBy />
     </>
   );
 }

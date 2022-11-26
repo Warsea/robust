@@ -39,12 +39,14 @@ function Episodes(props) {
           </IconButton>
         </Box>
       </Box>
-      <CardMedia
-        component="img"
-        sx={{ width: 151 }}
-        image={props.image}
-        alt="Live from space album cover"
-      />
+      <Box>
+        <CardMedia
+          component="img"
+          sx={{ width: 151 }}
+          image={props.image}
+          alt="Live from space album cover"
+        />
+      </Box>
     </Card>
   );
 }

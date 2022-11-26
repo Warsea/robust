@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import AboutRobu from "./pages/AboutRobu";
 import Home from "./pages/Home";
-import Podcasts from "./pages/Podcasts";
+import PodcastsPage from "./pages/PodcastsPage";
 import { PodcastContext } from "./contexts/PodcastContext";
 import PodcastPlayer from "./components/PodcastPlayer";
 import { AudioContext } from "./contexts/AudioContext";
@@ -58,10 +58,7 @@ function App() {
                   loading ? <CircularProgress /> : <Home podcasts={podcasts} />
                 }
               />
-              <Route
-                path="/podcasts"
-                element={<Podcasts podcasts={podcasts} />}
-              />
+              <Route path="/podcasts" element={<PodcastsPage />} />
               <Route path="/about_robu" element={<AboutRobu />} />
             </Routes>
             <Footer />
