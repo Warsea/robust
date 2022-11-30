@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/robust/static/js/main.75a0731c.js",
-    "static/media/palacio.jpg": "/robust/static/media/palacio.e466d883a06648281ee0.jpg",
+    "main.js": "/robust/static/js/main.577898c1.js",
+    "static/media/Sandra.jpg": "/robust/static/media/Sandra.73c478bc7075daa9c350.jpg",
     "static/media/Robust_logo.png": "/robust/static/media/Robust_logo.2085487afe907036035f.png",
     "index.html": "/robust/index.html",
-    "main.75a0731c.js.map": "/robust/static/js/main.75a0731c.js.map"
+    "main.577898c1.js.map": "/robust/static/js/main.577898c1.js.map"
   },
   "entrypoints": [
-    "static/js/main.75a0731c.js"
+    "static/js/main.577898c1.js"
   ]
 }
