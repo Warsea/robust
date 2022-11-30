@@ -20,6 +20,14 @@ function Episodes(props) {
   console.log(props.audioLink);
   return (
     <Card sx={{ display: "flex" }}>
+      <Box>
+        <CardMedia
+          component="img"
+          sx={{ width: 151 }}
+          image={props.image}
+          alt="Live from space album cover"
+        />
+      </Box>
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <CardContent sx={{ flex: "1 0 auto" }}>
           <Typography component="div" variant="h5">
@@ -38,14 +46,6 @@ function Episodes(props) {
             <PlayArrowIcon sx={{ height: 38, width: 38 }} />
           </IconButton>
         </Box>
-      </Box>
-      <Box>
-        <CardMedia
-          component="img"
-          sx={{ width: 151 }}
-          image={props.image}
-          alt="Live from space album cover"
-        />
       </Box>
     </Card>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import BroadcastOnHomeIcon from "@mui/icons-material/BroadcastOnHome";
 import styled from "@mui/system/styled";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import Robust_logo from "../images/Robust_logo.png";
 
 const MenuToggler = styled(Box)(({ theme }) => ({
@@ -28,6 +28,16 @@ const AppbarOptions = styled(Box)(({ theme }) => ({
 
 function Nav() {
   const [openNav, setOpenNav] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loaded) {
+      navigate("/");
+      setLoaded(true);
+    }
+  }, []);
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <NavDrawer open={openNav} setOpen={setOpenNav} />
@@ -66,13 +76,18 @@ function Nav() {
 
             <Button color="inherit">
               <Link
-                to="/podcasts"
+                to="/podcasts/news"
                 style={{ color: "inherit", textDecoration: "none" }}
               >
                 Podcasts
               </Link>
             </Button>
-            <Button color="inherit">About Robu</Button>
+            <Link
+              to="/about"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Button color="inherit">About</Button>
+            </Link>
           </AppbarOptions>
         </Toolbar>
       </AppBar>

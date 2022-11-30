@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import Drawer from "@mui/material/Drawer";
 import HomeIcon from "@mui/icons-material/Home";
 import PodcastsIcon from "@mui/icons-material/Podcasts";
@@ -13,6 +12,8 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import StarBorder from "@mui/icons-material/StarBorder";
 import Box from "@mui/material/Box";
+import { Link } from "react-router-dom";
+import Robust_logo from "../images/Robust_logo.png";
 
 function NavDrawer(props) {
   const [open, setOpen] = useState(false);
@@ -33,13 +34,28 @@ function NavDrawer(props) {
               </ListSubheader>
             }
           >
-            <ListItemButton>
-              <HomeIcon />
-              <ListItemText primary="Home" />
-            </ListItemButton>
-            <ListItemButton>
-              <ListItemText primary="{Robu logo} About Robu" />
-            </ListItemButton>
+            <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
+              <ListItemButton onClick={() => props.setOpen(false)}>
+                <HomeIcon />
+                <ListItemText primary="Home" />
+              </ListItemButton>
+            </Link>
+            <Link
+              to="/about"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <ListItemButton onClick={() => props.setOpen(false)}>
+                <Box
+                  component="img"
+                  sx={{
+                    height: 24,
+                  }}
+                  alt="Your logo."
+                  src={Robust_logo}
+                />
+                <ListItemText primary="About" />
+              </ListItemButton>
+            </Link>
             <ListItemButton onClick={handleClick}>
               <PodcastsIcon />
               <ListItemText primary="Podcasts" />
@@ -47,12 +63,34 @@ function NavDrawer(props) {
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                <ListItemButton sx={{ pl: 4 }}>
-                  <ListItemIcon>
-                    <StarBorder />
-                  </ListItemIcon>
-                  <ListItemText primary="Robust" />
-                </ListItemButton>
+                <Link
+                  to="podcasts/news"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => props.setOpen(false)}
+                  >
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                    <ListItemText primary="Robust News" />
+                  </ListItemButton>
+                </Link>
+                <Link
+                  to="/podcasts/techTalks"
+                  style={{ color: "inherit", textDecoration: "none" }}
+                >
+                  <ListItemButton
+                    sx={{ pl: 4 }}
+                    onClick={() => props.setOpen(false)}
+                  >
+                    <ListItemIcon>
+                      <StarBorder />
+                    </ListItemIcon>
+                    <ListItemText primary="TechTalks" />
+                  </ListItemButton>
+                </Link>
               </List>
             </Collapse>
           </List>

@@ -2,7 +2,7 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { redirect, Route, Routes } from "react-router-dom";
 import parse from "rss-to-json";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
@@ -12,6 +12,7 @@ import PodcastsPage from "./pages/PodcastsPage";
 import { PodcastContext } from "./contexts/PodcastContext";
 import PodcastPlayer from "./components/PodcastPlayer";
 import { AudioContext } from "./contexts/AudioContext";
+import About from "./pages/About";
 
 // https://feed.podbean.com/warsisarjeelrahman/feed.xml
 
@@ -58,8 +59,8 @@ function App() {
                   loading ? <CircularProgress /> : <Home podcasts={podcasts} />
                 }
               />
-              <Route path="/podcasts" element={<PodcastsPage />} />
-              <Route path="/about_robu" element={<AboutRobu />} />
+              <Route path="/podcasts/:name" element={<PodcastsPage />} />
+              <Route path="/about" element={<About />} />
             </Routes>
             <Footer />
             {playing === null ? null : <PodcastPlayer />}

@@ -7,6 +7,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Episodes from "./Episodes";
+import { Link } from "react-router-dom";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -21,9 +22,14 @@ function InfoSection() {
   return (
     <>
       <Container sx={{ my: 5, py: 3 }} maxWidth="lg">
-        <Typography variant="h4" color="text.secondary">
-          Robust News
-        </Typography>
+        <Link
+          to="podcasts/news"
+          style={{ color: "inherit", textDecoration: "none" }}
+        >
+          <Typography variant="h4" color="text.secondary">
+            Robust News
+          </Typography>
+        </Link>
         <Typography variant="subtitle1" color="text.secondary" pb={3}>
           One-stop destination for updates on the latest robotics and technology
           competitions and events.
@@ -48,9 +54,14 @@ function InfoSection() {
         </Grid>
       </Container>
       <Container sx={{ my: 5, py: 3 }} maxWidth="lg">
-        <Typography variant="h4" color="text.secondary">
-          TechTalks
-        </Typography>
+        <Link
+          to="podcasts/techTalks"
+          style={{ color: "inherit", textDecoration: "none" }}
+        >
+          <Typography variant="h4" color="text.secondary">
+            Robust News
+          </Typography>
+        </Link>
         <Typography variant="subtitle1" color="text.secondary" pb={3}>
           Get involved with discussions on the latest technology trends.
         </Typography>

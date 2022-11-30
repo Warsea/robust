@@ -11,10 +11,7 @@ import { AudioContext } from "../contexts/AudioContext";
 
 function PodcastPlayer() {
   const { playing } = useContext(AudioContext);
-  useEffect(() => {
-    console.log("audio efected");
-    console.log(playing);
-  }, [playing]);
+  useEffect(() => {}, [playing]);
   return (
     <Box>
       <Paper
