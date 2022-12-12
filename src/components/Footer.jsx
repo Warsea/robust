@@ -2,6 +2,9 @@ import React from "react";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
 
 function Copyright() {
   return (
@@ -31,35 +34,22 @@ function Footer() {
         variant="subtitle1"
         align="center"
         color="text.secondary"
-        component="p"
+        component="div"
+        px={5}
       >
-        Give social links
+        <Box component="span" color="text.secondary">
+          <FacebookIcon />
+        </Box>
+        <Box component="span" color="text.secondary">
+          <EmailIcon />
+        </Box>
+        <Box component="span" color="text.secondary">
+          <PhoneEnabledIcon />
+        </Box>
       </Typography>
+
       <Copyright />
     </Box>
-    // <Box
-    //   bgcolor="rgba(255, 255, 255, 0.12)"
-    //   color="white"
-    //   mt={3}
-    //   px={{ xs: 3, sm: 10 }}
-    //   py={{ xs: 5, sm: 6 }}
-    // >
-    //   <Container maxWidth="lg">
-    //     <Grid container spacing={5}>
-    //       <Grid item xs={12} sm={6}>
-    //         <Box>Credits</Box>
-    //         <Box>Email</Box>
-    //       </Grid>
-    //       <Grid item xs={12} sm={6}>
-    //         <Box>Address</Box>
-    //         <Box>Phone</Box>
-    //       </Grid>
-    //     </Grid>
-    //     <Box textAlign="center" pt={{ xs: 5, sm: 10 }} pb={{ xs: 5, sm: 0 }}>
-    //       Robust &reg; 2022
-    //     </Box>
-    //   </Container>
-    // </Box>
   );
 }
 

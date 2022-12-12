@@ -1,9 +1,9 @@
 import Box from "@mui/system/Box";
 import React from "react";
-import background from "../images/Sandra.jpg";
+import background from "../images/Sandra.avif";
 import Paper from "@mui/material/Paper";
-import { styled } from "@mui/system";
-import { Typography } from "@mui/material";
+import styled from "@mui/system/styled";
+import Typography from "@mui/material/Typography";
 import InfoSection from "../components/InfoSection";
 import PoweredBy from "../components/PoweredBy";
 import { useState } from "react";

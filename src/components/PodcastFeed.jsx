@@ -1,7 +1,6 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import React, { useContext } from "react";
-import { useEffect } from "react";
 import { PodcastContext } from "../contexts/PodcastContext";
 import Episodes from "./Episodes";
 
@@ -15,11 +14,10 @@ function PodcastFeed(props) {
       </Typography>
       {podcasts.items.map((podcast) => {
         let [type, title] = podcast.title.split("_");
-        console.log(type);
         if (type === props.currentPodcast) {
           return (
             <Episodes
-              key={podcast.pubDate}
+              key={podcast.published}
               name={title}
               description={podcast.description}
               audioLink={podcast.enclosures[0].url}

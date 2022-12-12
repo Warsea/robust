@@ -34,6 +34,7 @@ function PodcastPlayer() {
               src={playing.link}
               autoPlay
               controls
+              controlsList="nodownload"
               style={{ opacity: "40%", width: "100%" }}
             />
           </Grid>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import HomeIcon from "@mui/icons-material/Home";
 import PodcastsIcon from "@mui/icons-material/Podcasts";
@@ -14,8 +14,10 @@ import StarBorder from "@mui/icons-material/StarBorder";
 import Box from "@mui/material/Box";
 import { Link } from "react-router-dom";
 import Robust_logo from "../images/Robust_logo.png";
+import { PodcastContext } from "../contexts/PodcastContext";
 
 function NavDrawer(props) {
+  const { podcastChannels } = useContext(PodcastContext);
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen(!open);
@@ -63,34 +65,23 @@ function NavDrawer(props) {
             </ListItemButton>
             <Collapse in={open} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
-                <Link
-                  to="podcasts/news"
-                  style={{ color: "inherit", textDecoration: "none" }}
-                >
-                  <ListItemButton
-                    sx={{ pl: 4 }}
-                    onClick={() => props.setOpen(false)}
+                {podcastChannels.map((podcastChannel) => (
+                  <Link
+                    key={podcastChannel.key}
+                    to={`podcasts/${podcastChannel.key}`}
+                    style={{ color: "inherit", textDecoration: "none" }}
                   >
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="Robust News" />
-                  </ListItemButton>
-                </Link>
-                <Link
-                  to="/podcasts/techTalks"
-                  style={{ color: "inherit", textDecoration: "none" }}
-                >
-                  <ListItemButton
-                    sx={{ pl: 4 }}
-                    onClick={() => props.setOpen(false)}
-                  >
-                    <ListItemIcon>
-                      <StarBorder />
-                    </ListItemIcon>
-                    <ListItemText primary="TechTalks" />
-                  </ListItemButton>
-                </Link>
+                    <ListItemButton
+                      sx={{ pl: 4 }}
+                      onClick={() => props.setOpen(false)}
+                    >
+                      <ListItemIcon>
+                        <StarBorder />
+                      </ListItemIcon>
+                      <ListItemText primary={podcastChannel.name} />
+                    </ListItemButton>
+                  </Link>
+                ))}
               </List>
             </Collapse>
           </List>
